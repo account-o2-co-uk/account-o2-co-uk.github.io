@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        /* White 50px bar above the top bar */
+        .white-bar {
+            background-color: white;
+            height: 50px;
+            display: flex;
+            justify-content: flex-end; /* Align the text to the right */
+            padding-right: 20px;
+            align-items: center;
+        }
+        /* Top blue bar */
+        .top-bar {
+            background-color: #0019A5;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        /* Logo styling */
+        .logo {
+            height: 40px; /* Adjust size as needed */
+        }
+        /* Menu items container */
+        .menu {
+            display: flex;
+            align-items: center;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        /* Spacer for spacing between the logo and the menu */
+        .spacer {
+            flex-grow: 1;
+        }
+        /* 3px bar below the top bar */
+        .spacer-bar {
+            background-color: #f4f4f4; /* Light gray for subtle spacing */
+            height: 3px;
+        }
+        /* Gradient bar from #102753 to #2287c0 */
+        .greenish-blue-bar {
+            background: linear-gradient(to bottom, #102753, #2287c0);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px; /* Add padding to move the text to the left */
+            border-top-left-radius: 15px; /* Rounded top-left corner */
+            border-top-right-radius: 15px; /* Rounded top-right corner */
+        }
+        .greenish-blue-bar h1 {
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            font-size: 36px;
+            font-weight: 100; /* Slim font */
+            margin: 0;
+        }
+        /* New Text just below the green bar, within the white background */
+        .sign-in-to-my-02 {
+            font-family: 'Segoe UI', sans-serif;
+            color: #102753; /* Dark blue color */
+            font-size: 36px; /* Same font size as "Sign In" */
+            font-weight: 100; /* Slim font */
+            margin: 0;
+            padding-left: 20px; /* Align to the left */
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            width: calc(100% - 200px); /* 100px space from both sides */
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px; /* Increased padding for more height */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #e0e0e0; /* Initial gray color */
+            box-sizing: border-box;
+            font-size: 14px; /* Larger text size */
+            transition: background-color 0.3s ease; /* Smooth transition for focus */
+        }
+        /* Change background color to white when the field is focused */
+        .input-field:focus {
+            background-color: white;
+            border-color: #4caf50; /* Green border color when focused */
+            outline: none; /* Remove the default outline */
+        }
+        .login-button {
+            width: 100%;
+            padding: 15px; /* Increased padding for more height */
+            background-color: #a0a0a0; /* Lighter gray color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-sizing: border-box;
+            font-size: 16px; /* Larger text size */
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+        .login-button:hover {
+            background-color: #808080; /* Darker gray on hover */
+        }
+        /* White search icon */
+        .search-icon {
+            color: white; /* White color for the search icon */
+            font-size: 20px; /* Adjust size as needed */
+        }
+        /* New styles for the checkbox */
+        .remember-me {
+            font-size: 14px;
+            color: #102753;
+            margin: 10px 0;
+        }
+        .remember-me input {
+            margin-right: 5px;
+        }
+        /* New styles for labels (14px) */
+        label {
+            font-size: 14px;
+            color: #102753;
+        }
+        /* Forgot username or password text */
+        .forgot-link {
+            font-size: 14px;
+            color: #0019A5; /* Blue color */
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+        /* Line below the forgot text */
+        .forgot-line {
+            border-top: 1px solid black;
+            margin-top: 20px;
+        }
+        /* New rectangular box with thinner border, top corners rounded, and bottom base line invisible */
+        .rectangle-box {
+            width: calc(100% - 200px); /* Same width as the input fields (100px padding from both sides) */
+            height: 100px;
+            background-color: white; /* Keep the inside white */
+            margin-top: 100px; /* 100px below the black line */
+            margin-left: 100px; /* Align it to have same margin as input fields */
+            border: 4px solid; /* Thinner border */
+            border-image: linear-gradient(to right, #0019A5, #FF0000) 1; /* Gradient border */
+            border-top-left-radius: 15px; /* Rounded top-left corner */
+            border-top-right-radius: 15px; /* Rounded top-right corner */
+            border-bottom: none; /* Remove bottom border */
+        }
+        /* Style for "Sign in or Register" link */
+        .sign-in-register {
+            color: black; /* Black text */
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .sign-in-register:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- White 50px Bar with "Sign in or Register" text -->
+    <div class="white-bar">
+        <a href="#" class="sign-in-register">Sign in or Register</a>
+    </div>
+
+    <!-- Top Bar with Logo and Menu -->
+    <div class="top-bar">
+        <!-- Logo on the left -->
+        <img src="https://cdn.freebiesupply.com/logos/large/2x/o2-logo-black-and-white.png" alt="Logo" class="logo">
+        
+        <!-- Spacer between logo and menu -->
+        <div class="spacer"></div>
+
+        <!-- Menu items -->
+        <div class="menu">
+            <a href="#">Shop</a>
+            <a href="#">Help</a> <!-- Help menu -->
+            <a href="#">My O2</a> <!-- My O2 menu -->
+            <a href="#" class="search-icon">🔍</a> <!-- White search icon -->
+        </div>
+    </div>
+
+    <!-- 10px Spacer Bar -->
+    <div class="spacer-bar"></div>
+
+    <!-- Gradient Bar with Slim "Sign In" Text Moved to Left -->
+    <div class="greenish-blue-bar">
+        <h1>Sign In</h1>
+    </div>
+
+    <!-- New Text "Sign in to My O2" just below the green bar -->
+    <div class="sign-in-to-my-02">
+        Sign in to My O2
+    </div>
+
+    <div class="login-container">
+        <form action="#" method="post">
+            <label for="email">Username (usually your email address)</label><br>
+            <input type="email" id="email" name="email" class="input-field" required><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" class="input-field" required><br>
+
+            <!-- Remember me checkbox -->
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember my username</label>
+            </div>
+
+            <button type="submit" class="login-button">Log In</button>
+
+            <!-- Forgot username or password link -->
+            <a href="#" class="forgot-link">Forgot your username or password?</a>
+        </form>
+
+        <!-- Black line below the forgot link -->
+        <div class="forgot-line"></div>
+    </div>
+
+    <!-- New rectangular box with thinner border, top corners rounded, and bottom base line invisible -->
+    <div class="rectangle-box"></div>
+
+</body>
+</html>

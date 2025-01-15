@@ -29,6 +29,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
+            height: 50px; /* Ensure this is 60px height */
         }
         /* Logo styling */
         .logo {
@@ -61,17 +62,17 @@
         /* Gradient bar from #102753 to #2287c0 */
         .greenish-blue-bar {
             background: linear-gradient(to bottom, #102753, #2287c0);
-            height: 100px;
+            height: 60px; /* Set same height as the top blue bar */
             display: flex;
             align-items: center;
             padding-left: 20px; /* Add padding to move the text to the left */
-            border-top-left-radius: 15px; /* Rounded top-left corner */
-            border-top-right-radius: 15px; /* Rounded top-right corner */
+            border-top-left-radius: 0px; /* Rounded top-left corner */
+            border-top-right-radius: 0px; /* Rounded top-right corner */
         }
         .greenish-blue-bar h1 {
             font-family: 'Segoe UI', sans-serif;
             color: white;
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 100; /* Slim font */
             margin: 0;
         }
@@ -87,12 +88,12 @@
         .login-container {
             max-width: 400px;
             margin: 50px auto;
-            padding: 20px;
-            width: calc(100% - 200px); /* 100px space from both sides */
+            padding: 0 20px; /* 20px padding on the left and right */
+            width: 100%;
         }
         .input-field {
-            width: 100%;
-            padding: 10px; /* Increased padding for more height */
+            width: calc(100% - 20px); /* 10px padding from both left and right sides */
+            padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -108,8 +109,8 @@
             outline: none; /* Remove the default outline */
         }
         .login-button {
-            width: 100%;
-            padding: 15px; /* Increased padding for more height */
+            width: calc(100% - 20px); /* 10px padding from both left and right sides */
+            padding: 15px;
             background-color: #a0a0a0; /* Lighter gray color */
             color: white;
             border: none;
@@ -155,27 +156,20 @@
             border-top: 1px solid black;
             margin-top: 20px;
         }
-        /* New rectangular box with thinner border, top corners rounded, and bottom base line invisible */
-        .rectangle-box {
-            width: calc(100% - 200px); /* Same width as the input fields (100px padding from both sides) */
-            height: 100px;
-            background-color: white; /* Keep the inside white */
-            margin-top: 100px; /* 100px below the black line */
-            margin-left: 100px; /* Align it to have same margin as input fields */
-            border: 4px solid; /* Thinner border */
-            border-image: linear-gradient(to right, #0019A5, #FF0000) 1; /* Gradient border */
-            border-top-left-radius: 15px; /* Rounded top-left corner */
-            border-top-right-radius: 15px; /* Rounded top-right corner */
-            border-bottom: none; /* Remove bottom border */
+        /* Mobile view adjustments */
+        @media (max-width: 600px) {
+            .input-field, .login-button {
+                width: calc(100% - 20px); /* 10px padding on each side */
+                padding-left: 10px;
+                padding-right: 10px;
+            }
         }
-        /* Style for "Sign in or Register" link */
-        .sign-in-register {
-            color: black; /* Black text */
+
+        /* Modify color of "Sign in or Register" text */
+        .white-bar .sign-in-register {
+            color: black; /* Set text color to black */
             text-decoration: none;
             font-size: 16px;
-        }
-        .sign-in-register:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -198,7 +192,7 @@
         <div class="menu">
             <a href="#">Shop</a>
             <a href="#">Help</a> <!-- Help menu -->
-            <a href="#">My O2</a> <!-- My O2 menu -->
+            <a href="#">My 02</a> <!-- My O2 menu -->
             <a href="#" class="search-icon">🔍</a> <!-- White search icon -->
         </div>
     </div>
@@ -239,9 +233,6 @@
         <!-- Black line below the forgot link -->
         <div class="forgot-line"></div>
     </div>
-
-    <!-- New rectangular box with thinner border, top corners rounded, and bottom base line invisible -->
-    <div class="rectangle-box"></div>
 
 </body>
 </html>
